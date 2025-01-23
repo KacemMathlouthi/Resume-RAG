@@ -1,0 +1,73 @@
+### **Contact Information**
+- **Name**: Kacem Mathlouthi
+- **Email**: kacem.mathlouthi@ieee.org
+- **Phone Number**: +216 52 387 938
+- **LinkedIn**: [Kacem Mathlouthi](https://www.linkedin.com/in/kacem-mathlouthi)
+- **GitHub**: [Kacem Mathlouthi](https://github.com/KacemMathlouthi)
+- **Address**: Tunis, Tunisia
+
+---
+
+### **Professional Summary**
+- **Overview**: Kacem Mathlouthi is a Software Engineering student at the National Institute of Applied Science and Technology (INSAT), specializing in Artificial Intelligence and Machine Learning.
+- **Expertise**:
+  - Developing AI agents, Convolutional Neural Networks (CNNs), and Retrieval-Augmented Generation (RAG) chatbot systems.
+  - Delivering innovative solutions across industries: cybersecurity, insurance, agriculture, and developer tools.
+- **Passion**: Committed to creating meaningful AI-driven software solutions with practical impact.
+
+---
+
+### **Education**
+- **Institution**: National Institute of Applied Science and Technology (INSAT)
+- **Degree**: Bachelor of Science in Software Engineering
+- **Expected Graduation**: May 2027
+- **Key Coursework**:
+  - **Programming**: Data Structures and Algorithms, Object-Oriented Programming, UML, System Design.
+  - **Databases**: Relational Databases, NoSQL.
+  - **Mathematics**: Probability, Statistics, Linear Algebra, Optimization Algorithms.
+  - **Data Analysis**: Data visualization and analysis techniques.
+
+---
+
+### **Professional Experience**
+#### **Machine Learning Engineer Intern**
+- **Organization**: Orange, Tunis, Tunisia
+- **Duration**: August 2024 – October 2024
+- **Key Contributions**:
+  - Developed a lightweight Convolutional Neural Network (CNN) optimized for edge devices using knowledge distillation.
+  - Automated report generation through an AI-driven agentic workflow, improving efficiency in data collection, analysis, and research.
+  - Designed a chatbot system to provide real-time farming guidance and insights.
+
+---
+
+### **Achievements and Recognitions**
+- **1st Place**: Orange x Hexabot Conversational AI Hackathon
+  - Developed plugins/extensions for Hexabot, enabling multimodal capabilities like text-to-speech, speech-to-text, and vision integration.
+- **2nd Place**: IEEE TSYP 12 CS Technical Challenge
+  - Created Smartshield: An AI-powered cybersecurity threat detection and response platform.
+- **2nd Place**: Artificial Intelligence National Summit (AINS 2.0)
+  - Built a Multi-LLM Agent System to assist machine learning professionals with problem-solving and data analysis.
+- **4th Place**: Orange Summer Challenge 2024
+  - Innovated AI applications for agriculture.
+- **3rd Place**: Code Quest ACM INSAT Programming Event
+  - Honed problem-solving and teamwork skills through competitive programming.
+
+---
+
+### **Projects**
+#### **MachineLearning.Guide**
+- **Description**: Multi-LLM Agent System to assist professionals in machine learning problem-solving.
+- **Tools Used**: CrewAI, Streamlit, GroqAI, JinaAI, Sweetviz, Arxiv.
+- **Outcome**: Efficient definition, evaluation, and solution of machine learning challenges.
+
+#### **Machine Learning Algorithms From Scratch**
+- **Description**: Implemented foundational ML algorithms (PCA, Random Forest, Decision Trees, KNN, K-means).
+- **Technologies**: Python, NumPy, Matplotlib, Scikit-learn.
+- **Outcome**: Demonstrated deep understanding of core ML concepts.
+
+---
+
+### **Technical Skills**
+- **Programming Languages**: Python, C/C++, Java, SQL, JavaScript.
+- **Tools and Frameworks**: Git, Linux, NumPy, Pandas, PyTorch, Langchain, CrewAI, FastAPI, MongoDB, Streamlit, Docker.
+- **Expertise**: Building scalable, efficient AI and software engineering solutions.
