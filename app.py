@@ -1,11 +1,20 @@
-from utils import setup_embedding_model, load_text_data, semantic_search, resume_chat_completion
-from dotenv import load_dotenv
-from langchain.vectorstores import Chroma
-from groq import Groq
 import os
 
+from dotenv import load_dotenv
+from groq import Groq
+from langchain.vectorstores import Chroma
+
+from utils import (
+    load_text_data,
+    resume_chat_completion,
+    semantic_search,
+    setup_embedding_model,
+)
+
 # Load the embeddings model
-embedding_model = setup_embedding_model(model_name='sentence-transformers/all-mpnet-base-v2')
+embedding_model = setup_embedding_model(
+    model_name="sentence-transformers/all-mpnet-base-v2"
+)
 
 # Load the text data
 my_resume = load_text_data("resume.txt")
@@ -22,7 +31,7 @@ retriever = db.as_retriever(search_type="similarity", search_kwargs={"k": 3})
 # Setting up the llm
 load_dotenv()
 client = Groq(
-  api_key=os.getenv("GROQ_API_KEY"),
+    api_key=os.getenv("GROQ_API_KEY"),
 )
 
 # User question
@@ -32,5 +41,7 @@ user_question = input("Enter your question: ")
 relevant_excerpts = semantic_search(user_question, retriever)
 
 # LLM Response
-response = resume_chat_completion(client, "llama-3.3-70b-versatile", user_question, relevant_excerpts)
+response = resume_chat_completion(
+    client, "llama-3.3-70b-versatile", user_question, relevant_excerpts
+)
 print(response)
