@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from groq import Groq
 from langchain.vectorstores import Chroma
+import gradio as gr
 
 from utils import (
     load_text_data,
@@ -22,7 +23,6 @@ my_resume = load_text_data("resume.txt")
 # Chunking the text data
 chunks = [chunk.strip() for chunk in my_resume.split("---") if chunk.strip()]
 chunk_sizes = [len(chunk) for chunk in chunks]
-print("Here are the chunk sizes:", chunk_sizes)
 
 # Create a Chroma database
 db = Chroma.from_texts(chunks, embedding_model)
@@ -34,14 +34,42 @@ client = Groq(
     api_key=os.getenv("GROQ_API_KEY"),
 )
 
-# User question
-user_question = input("Enter your question: ")
+with gr.Blocks() as demo:
+    chatbot = gr.Chatbot(type="messages")
+    msg = gr.Textbox()
+    clear = gr.ClearButton([msg, chatbot])
 
-# Semantic search
-relevant_excerpts = semantic_search(user_question, retriever)
+    # Function for chatbot interaction
+    def respond(user_question, history):
+        """
+        Gradio function for chatbot interaction.
+        Args:
+            user_question (str): The user's question.
+            history (list): The chat history.
+        Returns:
+            tuple: Updated chat history and cleared textbox
+        """
+        try:
+            # Perform semantic search
+            relevant_excerpts = semantic_search(user_question, retriever)
+            # Get the LLM response
+            response = resume_chat_completion(
+                client, "llama-3.3-70b-versatile", user_question, relevant_excerpts
+            )
 
-# LLM Response
-response = resume_chat_completion(
-    client, "llama-3.3-70b-versatile", user_question, relevant_excerpts
-)
-print(response)
+            # Append to history and return both history and empty string for textbox
+            history.append((user_question, response))
+            return  "", history
+
+        except Exception as e:
+            # Handle errors gracefully
+            error_response = f"An error occurred: {e}"
+            history.append((user_question, error_response))
+            return history, ""
+
+    # Update the submit method to match the new function signature
+    msg.submit(respond, [msg, chatbot], [chatbot, msg])
+
+# Run the app
+if __name__ == "__main__":
+    demo.launch()
