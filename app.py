@@ -35,17 +35,36 @@ client = Groq(
 )
 
 with gr.Blocks() as demo:
-    chatbot = gr.Chatbot(type="messages")
-    msg = gr.Textbox()
-    clear = gr.ClearButton([msg, chatbot])
+    gr.Markdown("# Kacem Mathlouthi Resume RAG Chatbot")
+    gr.Markdown("""
+    ## About this Chatbot
+    
+    This is a Retrieval-Augmented Generation (RAG) chatbot powered by AI that allows you to interactively explore Kacem Mathlouthi's resume. 
+    
+    - **Technology**: Utilizes advanced semantic search and language model techniques
+    - **Purpose**: Provide detailed, context-aware answers about Kacem's professional background
+    - **How it works**: 
+      1. Your question is semantically searched against resume chunks
+      2. Relevant excerpts are retrieved
+      3. A language model generates a precise, contextual response
+    """)
+
+    chatbot = gr.Chatbot(type="messages", height=400)
+    with gr.Row(equal_height=True):
+        with gr.Column(scale=10):
+            msg = gr.Textbox(label="Ask a question about the resume", container=False)
+        with gr.Column(scale=1):
+            submit = gr.Button(value="➤", size="sm")
+    
+    clear = gr.ClearButton([msg, chatbot], size="sm")
 
     # Function for chatbot interaction
     def respond(message, chat_history):
         """
         Gradio function for chatbot interaction.
         Args:
-            user_question (str): The user's question.
-            history (list): The chat history.
+            message (str): The user's question.
+            chat_history (list): The chat history.
         Returns:
             tuple: Updated chat history and cleared textbox
         """
@@ -61,7 +80,8 @@ with gr.Blocks() as demo:
         chat_history.append({"role": "assistant", "content": bot_message})
         return "", chat_history
 
-    # Update the submit method to match the new function signature
+    # Bind submit button and textbox to the respond function
+    submit.click(respond, [msg, chatbot], [msg, chatbot])
     msg.submit(respond, [msg, chatbot], [msg, chatbot])
 
 # Run the app
