@@ -1,9 +1,9 @@
 import os
 
+import gradio as gr
 from dotenv import load_dotenv
 from groq import Groq
 from langchain.vectorstores import Chroma
-import gradio as gr
 
 from utils import (
     load_text_data,
@@ -18,7 +18,7 @@ embedding_model = setup_embedding_model(
 )
 
 # Load the text data
-my_resume = load_text_data("resume.txt")
+my_resume = load_text_data("data/resume.txt")
 
 # Chunking the text data
 chunks = [chunk.strip() for chunk in my_resume.split("---") if chunk.strip()]
