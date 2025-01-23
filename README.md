@@ -1,18 +1,12 @@
-Here's a sample `README.md` file tailored to your project:
-
----
-
-# **Resume-Based Chatbot with Gradio**
-
-A chatbot application that leverages **retrieval-augmented generation (RAG)** to answer questions about an individual's professional experience. The chatbot is designed to retrieve relevant information from a resume and generate intelligent responses using state-of-the-art language models.
+# **RAG Resume Chatbot with Gradio**
+A chatbot application that leverages **retrieval-augmented generation (RAG)** to answer questions about an individual's professional experience. The chatbot is designed to retrieve relevant information from a resume and generate intelligent responses using large language models (LLMs).
 
 ---
 
 ## **Features**
-- **Resume-based Question Answering:** Ask questions about the professional background of Kacem Mathlouthi.
+- **Resume-based Question Answering:** Ask questions about Kacem Mathlouthi's professional background.
 - **Semantic Search:** Uses embeddings to retrieve the most relevant sections of the resume.
 - **Gradio Interface:** A user-friendly interface for interacting with the chatbot.
-- **Modular Design:** Cleanly organized for future scalability.
 
 ---
 
@@ -35,8 +29,9 @@ A chatbot application that leverages **retrieval-augmented generation (RAG)** to
 ├── requirements.txt     # Python dependencies
 ├── app.py               # Main application script
 ├── utils.py             # Utility functions for embeddings, search, etc.
-├── resume.txt           # Resume data for answering questions
-└── .env                 # Environment variables (not included in the repo)
+├── data
+│   └── resume.txt           # Resume data for answering questions
+└── .env                 # Environment variables (You should create this file)
 ```
 
 ---
@@ -45,8 +40,8 @@ A chatbot application that leverages **retrieval-augmented generation (RAG)** to
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/your-username/resume-chatbot.git
-cd resume-chatbot
+git clone https://github.com/KacemMathlouthi/Resume-RAG.git
+cd Resume-RAG
 ```
 
 ### **2. Create a Virtual Environment**
@@ -79,47 +74,11 @@ The application will run locally, and you can access it in your browser at [http
 ---
 
 ## **Usage**
-1. **Ask Questions:** Use the chatbot interface to ask specific questions about the resume. For example:
+**Ask Questions:** Use the chatbot interface to ask specific questions about the resume. For example:
    - *"What are Kacem Mathlouthi's main skills?"*
    - *"Tell me about his previous work experience."*
-2. **Clear Chat:** Use the clear button to reset the chat.
-
----
-
-## **Examples**
-
-### Example Input:
-**User:** "What programming languages does Kacem know?"
-
-**Bot:** "Kacem is proficient in Python, Java, and C++."
-
----
-
-## **Testing**
-To run unit tests:
-1. Install `pytest` (already included in `requirements.txt`).
-2. Run tests from the `tests` directory:
-```bash
-pytest tests/
-```
-
----
-
-## **Future Enhancements**
-- Support for additional data formats like PDFs or DOCX files.
-- Improved error handling and logging.
-- Cloud hosting for public access.
 
 ---
 
 ## **License**
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## **Contributing**
-Contributions are welcome! Feel free to fork the repository and submit a pull request.
-
----
-
-Let me know if you'd like to customize this further or add any additional sections!
