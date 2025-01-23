@@ -40,7 +40,7 @@ with gr.Blocks() as demo:
     clear = gr.ClearButton([msg, chatbot])
 
     # Function for chatbot interaction
-    def respond(user_question, history):
+    def respond(message, chat_history):
         """
         Gradio function for chatbot interaction.
         Args:
@@ -49,26 +49,20 @@ with gr.Blocks() as demo:
         Returns:
             tuple: Updated chat history and cleared textbox
         """
-        try:
-            # Perform semantic search
-            relevant_excerpts = semantic_search(user_question, retriever)
-            # Get the LLM response
-            response = resume_chat_completion(
-                client, "llama-3.3-70b-versatile", user_question, relevant_excerpts
-            )
+        # Perform semantic search
+        relevant_excerpts = semantic_search(message, retriever)
+        # Get the LLM response
+        bot_message = resume_chat_completion(
+            client, "llama-3.3-70b-versatile", message, relevant_excerpts
+        )
 
-            # Append to history and return both history and empty string for textbox
-            history.append((user_question, response))
-            return  "", history
-
-        except Exception as e:
-            # Handle errors gracefully
-            error_response = f"An error occurred: {e}"
-            history.append((user_question, error_response))
-            return history, ""
+        # Append to history and return both history and empty string for textbox
+        chat_history.append({"role": "user", "content": message})
+        chat_history.append({"role": "assistant", "content": bot_message})
+        return "", chat_history
 
     # Update the submit method to match the new function signature
-    msg.submit(respond, [msg, chatbot], [chatbot, msg])
+    msg.submit(respond, [msg, chatbot], [msg, chatbot])
 
 # Run the app
 if __name__ == "__main__":
